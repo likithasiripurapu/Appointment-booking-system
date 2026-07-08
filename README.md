@@ -1,1 +1,1 @@
-# Health-care-appointment-system
+# Appointment-booking-system
