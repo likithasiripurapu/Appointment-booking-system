@@ -1,0 +1,102 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "System Admin",
+      "email": "admin@healthcare.com",
+      "password": "$2a$10$sf9Tjdi6lRcZTrC5VtXGG.InkrIHiwd8OvjuV.x7pSEBonnc02fJ.",
+      "role": "admin",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "2",
+      "name": "Dr. Sarah Smith",
+      "email": "doctor@healthcare.com",
+      "password": "$2a$10$zILY0cJAxneXzxMpPANXrewQN/ZUHTAqAAHuus3WfZGwArsROvT1m",
+      "role": "doctor",
+      "specialty": "Cardiology",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "3",
+      "name": "Dr. Robert Jones",
+      "email": "dr.jones@healthcare.com",
+      "password": "$2a$10$ruB5/uMkPlzOjhXKA.SrR.aG.UZgykQ0R1jv.s/VLG54aQWqBz1uq",
+      "role": "doctor",
+      "specialty": "Pediatrics",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "4",
+      "name": "Dr. Emily Davis",
+      "email": "dr.davis@healthcare.com",
+      "password": "$2a$10$w.6M943E.zKan6lSwO.DnuGc2Os8bUfCS8YyVCKlsl1XS0icOzYOS",
+      "role": "doctor",
+      "specialty": "Neurology",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "5",
+      "name": "Dr. James Wilson",
+      "email": "dr.wilson@healthcare.com",
+      "password": "$2a$10$LWN9aRMOx1LTPzNG/9SsluAvlF8cpnzACAbu.n12wEKkgTXLQlbWK",
+      "role": "doctor",
+      "specialty": "Dermatology",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "6",
+      "name": "Alice Cooper",
+      "email": "receptionist@healthcare.com",
+      "password": "$2a$10$yKkxmtYLZgwcqvLHtpVN5uxYGiRHDtXsUWShZ6JABG4hoe8HkiChq",
+      "role": "receptionist",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "7",
+      "name": "John Doe",
+      "email": "patient@healthcare.com",
+      "password": "$2a$10$9jEeYAU.c86ZJuZcDtGGy.vxsTzAjfvfUjDjsnyB/zS2uazyast5y",
+      "role": "patient",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1783498070800",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "2",
+      "doctorName": "Dr. Sarah Smith",
+      "date": "2026-07-08",
+      "time": "9:00 AM",
+      "reason": "Consultation (In-person)",
+      "status": "approved",
+      "createdAt": "2026-07-08T08:07:50.802Z"
+    },
+    {
+      "id": "appt1",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "2",
+      "doctorName": "Dr. Sarah Smith",
+      "date": "2026-07-09",
+      "time": "10:00",
+      "reason": "Routine cardiovascular checkup",
+      "status": "approved",
+      "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "1783498533046",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "5",
+      "doctorName": "Dr. James Wilson",
+      "date": "2026-07-08",
+      "time": "9:00 AM",
+      "reason": "Consultation (Video)",
+      "status": "pending",
+      "createdAt": "2026-07-08T08:15:33.048Z"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "smart-healthcare",
+  "version": "1.0.0",
+  "description": "Smart Healthcare Appointment System with premium UI/UX dashboards",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1"
+  }
+}
