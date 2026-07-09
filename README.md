@@ -46,6 +46,61 @@ The main objectives of this project are:
 - Git
 - GitHub
 
+##  Project Structure
+
+```
+Appointment-booking-system
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   └── index.js
+│
+├── server.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── ...
+```
+
+
+##  Installation Guide
+
+### Step 1: Clone the repository
+
+```bash
+git clone https://github.com/likithasiripurapu/Appointment-booking-system.git
+```
+
+### Step 2: Navigate to the project folder
+
+```bash
+cd Appointment-booking-system
+```
+
+### Step 3: Install all dependencies
+
+```bash
+npm install
+```
+
+### Step 4: Start the backend server
+
+```bash
+node server.js
+```
+
+### Step 5: Start the frontend
+
+```bash
+npm start
+```
+
+The application will start running on your local machine.
+
+
 ## Working of the System
 
 1. The user opens the application.
