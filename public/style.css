@@ -1499,3 +1499,265 @@ a {
   color: var(--primary);
   background: var(--primary-soft);
 }
+
+/* Credit Card Preview */
+.credit-card-preview {
+  height: 180px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-md), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.credit-card-preview::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 100%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  border-radius: 6px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-number-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: auto;
+}
+
+.card-label {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.card-holder-display,
+.card-expiry-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Print Media Styles for Invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoice-print-area, #invoice-print-area * {
+    visibility: visible;
+  }
+  #invoice-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  .modal-overlay {
+    background: none !important;
+    position: static !important;
+  }
+  /* Hide print buttons and close buttons on output */
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Invoice Print Card Styles */
+.invoice-print-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #334155;
+}
+
+/* Premium Notification Bell & Dropdown Styles */
+.notification-bell-container button {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notification-bell-container button:hover {
+  background: var(--primary-soft) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  transform: translateY(-1px);
+}
+
+#notifications-dropdown {
+  animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#notifications-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#notifications-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom Placeholder Styles */
+.input-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.65;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Modern Dropdown Styling */
+select.input-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+  padding-right: 48px !important;
+  cursor: pointer;
+}
+
+select.input-control::-ms-expand {
+  display: none;
+}
+
+/* Availability Time Selection Grid */
+.availability-time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.time-select-pill {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.time-select-pill:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.time-select-pill.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-inverse) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* Custom Flatpickr Modern Adjustments */
+.flatpickr-calendar {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: 'Inter', sans-serif !important;
+  color: #000000 !important;
+}
+
+.flatpickr-months .flatpickr-month,
+.flatpickr-months .flatpickr-next-month,
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-current-month,
+.flatpickr-weekday,
+.flatpickr-day {
+  color: #000000 !important;
+  fill: #000000 !important;
+  font-weight: 700 !important;
+}
+
+.flatpickr-day {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.flatpickr-day:hover {
+  background: #f8f8f8 !important;
+  color: #000000 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay {
+  background: #ffffff !important;
+  border: 1px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.flatpickr-day.today {
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+.flatpickr-day.today:hover {
+  background: #f8f8f8 !important;
+  color: #000000 !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-weight: 800 !important;
+}

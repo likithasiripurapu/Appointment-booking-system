@@ -15,7 +15,33 @@
       "password": "$2a$10$zILY0cJAxneXzxMpPANXrewQN/ZUHTAqAAHuus3WfZGwArsROvT1m",
       "role": "doctor",
       "specialty": "Cardiology",
-      "createdAt": "2026-07-08T06:35:08.505Z"
+      "createdAt": "2026-07-08T06:35:08.505Z",
+      "availability": [
+        {
+          "id": "1783590394043",
+          "date": "2026-07-09",
+          "time": "16:20",
+          "isBooked": false
+        },
+        {
+          "id": "1783591174440",
+          "date": "2026-07-09",
+          "time": "17:20",
+          "isBooked": true
+        },
+        {
+          "id": "1783591188922",
+          "date": "2026-07-09",
+          "time": "18:20",
+          "isBooked": false
+        },
+        {
+          "id": "1783592251861",
+          "date": "2026-07-09",
+          "time": "15:54",
+          "isBooked": true
+        }
+      ]
     },
     {
       "id": "3",
@@ -59,9 +85,29 @@
       "password": "$2a$10$9jEeYAU.c86ZJuZcDtGGy.vxsTzAjfvfUjDjsnyB/zS2uazyast5y",
       "role": "patient",
       "createdAt": "2026-07-08T06:35:08.505Z"
+    },
+    {
+      "id": "1783587722351",
+      "name": "liki",
+      "email": "hi@gmail.com",
+      "password": "$2a$10$KD9ip8v4zPlWX6iyRpbTCOJZhVqNWwQcClhIYCZ8lbaj8B/HVVxzS",
+      "role": "patient",
+      "createdAt": "2026-07-09T09:02:02.352Z"
     }
   ],
   "appointments": [
+    {
+      "id": "1783587722361",
+      "patientId": "6",
+      "patientName": "Alice Cooper",
+      "doctorId": "3",
+      "doctorName": "Dr. Robert Jones",
+      "date": "2026-07-08",
+      "time": "1:15 PM",
+      "reason": "Fever (Mobile: 9515419988) (In-person)",
+      "status": "approved",
+      "createdAt": "2026-07-09T09:02:02.362Z"
+    },
     {
       "id": "1783498070800",
       "patientId": "7",
@@ -71,20 +117,17 @@
       "date": "2026-07-08",
       "time": "9:00 AM",
       "reason": "Consultation (In-person)",
-      "status": "approved",
-      "createdAt": "2026-07-08T08:07:50.802Z"
-    },
-    {
-      "id": "appt1",
-      "patientId": "7",
-      "patientName": "John Doe",
-      "doctorId": "2",
-      "doctorName": "Dr. Sarah Smith",
-      "date": "2026-07-09",
-      "time": "10:00",
-      "reason": "Routine cardiovascular checkup",
-      "status": "approved",
-      "createdAt": "2026-07-08T06:35:08.505Z"
+      "status": "completed",
+      "createdAt": "2026-07-08T08:07:50.802Z",
+      "notes": "Light fever and mild headache\nNo issues its regular fever",
+      "prescription": [
+        {
+          "medication": "Dolo 650",
+          "dosage": "500mg",
+          "frequency": "twice daily",
+          "duration": "3 days"
+        }
+      ]
     },
     {
       "id": "1783498533046",
@@ -95,8 +138,168 @@
       "date": "2026-07-08",
       "time": "9:00 AM",
       "reason": "Consultation (Video)",
-      "status": "pending",
+      "status": "approved",
       "createdAt": "2026-07-08T08:15:33.048Z"
+    },
+    {
+      "id": "appt1",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "2",
+      "doctorName": "Dr. Sarah Smith",
+      "date": "2026-07-09",
+      "time": "10:00",
+      "reason": "Routine cardiovascular checkup",
+      "status": "completed",
+      "createdAt": "2026-07-08T06:35:08.505Z",
+      "notes": "Headache",
+      "prescription": [
+        {
+          "medication": "Paracetamol",
+          "dosage": "50mg",
+          "frequency": "once daily",
+          "duration": "3days"
+        }
+      ],
+      "heartRate": "72",
+      "bloodPressure": "118/76",
+      "weight": "64 kg",
+      "healthScore": "92 / 100"
+    },
+    {
+      "id": "1783592291200",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "2",
+      "doctorName": "Dr. Sarah Smith",
+      "date": "2026-07-09",
+      "time": "15:54",
+      "reason": "Skin rash",
+      "status": "completed",
+      "createdAt": "2026-07-09T10:18:11.200Z",
+      "heartRate": "72",
+      "bloodPressure": "110/80",
+      "weight": "50 kg",
+      "healthScore": "85 / 100"
+    },
+    {
+      "id": "1783593452228",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorId": "2",
+      "doctorName": "Dr. Sarah Smith",
+      "date": "2026-07-09",
+      "time": "17:20",
+      "reason": "AI Assist: Chest pain",
+      "status": "approved",
+      "createdAt": "2026-07-09T10:37:32.228Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "1783587731799",
+      "appointmentId": "1783587722361",
+      "patientId": "6",
+      "patientName": "Alice Cooper",
+      "doctorName": "Dr. Robert Jones",
+      "amount": 140,
+      "status": "paid",
+      "createdAt": "2026-07-09T09:02:11.799Z",
+      "paymentMethod": "Cash"
+    },
+    {
+      "id": "1783588041386",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorName": "General Practice Specialist",
+      "consultationFee": 500,
+      "medicines": [],
+      "subtotal": 500,
+      "gstAmount": 90,
+      "amount": 590,
+      "status": "paid",
+      "paymentMethod": "UPI",
+      "createdAt": "2026-07-09T09:07:21.387Z"
+    },
+    {
+      "id": "1783592400758",
+      "appointmentId": "1783592291200",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorName": "Dr. Sarah Smith",
+      "consultationFee": 1200,
+      "medicines": [],
+      "subtotal": 1200,
+      "gstAmount": 216,
+      "amount": 1416,
+      "paymentMethod": "UPI",
+      "status": "paid",
+      "createdAt": "2026-07-09T10:20:00.758Z"
+    },
+    {
+      "id": "1783596979050",
+      "appointmentId": "1783593452228",
+      "patientId": "7",
+      "patientName": "John Doe",
+      "doctorName": "Dr. Sarah Smith",
+      "consultationFee": 1200,
+      "medicines": [],
+      "subtotal": 1200,
+      "gstAmount": 216,
+      "amount": 1416,
+      "paymentMethod": "",
+      "status": "unpaid",
+      "createdAt": "2026-07-09T11:36:19.050Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "17835922912027879",
+      "userId": "7",
+      "message": "Your appointment request with Dr. Sarah Smith is pending approval.",
+      "type": "info",
+      "read": false,
+      "createdAt": "2026-07-09T10:18:11.202Z"
+    },
+    {
+      "id": "17835924007594885",
+      "userId": "7",
+      "message": "Your appointment with Dr. Sarah Smith on 2026-07-09 at 15:54 has been approved.",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-07-09T10:20:00.759Z"
+    },
+    {
+      "id": "17835924017649712",
+      "userId": "7",
+      "message": "Reminder: Your appointment with Dr. Sarah Smith starts in 5 minutes at 15:54!",
+      "type": "reminder",
+      "read": false,
+      "createdAt": "2026-07-09T10:20:01.764Z"
+    },
+    {
+      "id": "17835934522314524",
+      "userId": "7",
+      "message": "Your appointment request with Dr. Sarah Smith is pending approval.",
+      "type": "info",
+      "read": false,
+      "createdAt": "2026-07-09T10:37:32.231Z"
+    },
+    {
+      "id": "17835969790534832",
+      "userId": "7",
+      "message": "Your appointment with Dr. Sarah Smith on 2026-07-09 at 17:20 has been approved.",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-07-09T11:36:19.053Z"
+    },
+    {
+      "id": "17835979943385509",
+      "userId": "7",
+      "message": "Your consultation with Dr. Sarah Smith is completed. Prescription and invoice are available.",
+      "type": "success",
+      "read": false,
+      "createdAt": "2026-07-09T11:53:14.338Z"
     }
   ]
 }
