@@ -68,7 +68,33 @@
       "password": "$2a$10$LWN9aRMOx1LTPzNG/9SsluAvlF8cpnzACAbu.n12wEKkgTXLQlbWK",
       "role": "doctor",
       "specialty": "Dermatology",
-      "createdAt": "2026-07-08T06:35:08.505Z"
+      "createdAt": "2026-07-08T06:35:08.505Z",
+      "availability": [
+        {
+          "id": "1783954377121",
+          "date": "2026-07-13",
+          "time": "7:00 PM",
+          "isBooked": false
+        },
+        {
+          "id": "1783954377135",
+          "date": "2026-07-13",
+          "time": "6:30 PM",
+          "isBooked": false
+        },
+        {
+          "id": "1783954377143",
+          "date": "2026-07-13",
+          "time": "12:00 PM",
+          "isBooked": false
+        },
+        {
+          "id": "1783954377153",
+          "date": "2026-07-13",
+          "time": "4:30 PM",
+          "isBooked": false
+        }
+      ]
     },
     {
       "id": "6",

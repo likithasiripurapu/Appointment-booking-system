@@ -165,6 +165,19 @@ async function checkAuth() {
   navigate(state.token ? 'dashboard' : 'landing');
 }
 
+function handleLogout() {
+  if (state.notificationsInterval) {
+    clearInterval(state.notificationsInterval);
+    state.notificationsInterval = null;
+  }
+  state.token = null;
+  state.user = null;
+  state.lastNotificationIds = undefined;
+  localStorage.removeItem('token');
+  showToast('Logged out successfully', 'info');
+  navigate('landing');
+}
+
 /* --- Global Event Handlers registered on window --- */
 window.app = {
   navigate,
@@ -231,18 +244,7 @@ window.app = {
     }
   },
 
-  handleLogout: () => {
-    if (state.notificationsInterval) {
-      clearInterval(state.notificationsInterval);
-      state.notificationsInterval = null;
-    }
-    state.token = null;
-    state.user = null;
-    state.lastNotificationIds = undefined;
-    localStorage.removeItem('token');
-    showToast('Logged out successfully', 'info');
-    navigate('landing');
-  },
+  handleLogout,
 
   // Quick fill tester credentials
   quickFill: (role) => {
@@ -2525,11 +2527,43 @@ window.app = {
       state.selectedAvailabilityTimes.push(time);
     }
 
-    const button = document.getElementById(`pill-${time.replace(':', '-').replace(' ', '-')}`);
+    const button = document.getElementById(`pill-${time.replace(':', '-').replace(' ', '-')}`) || document.getElementById(`pill-custom-${time.replace(':', '-').replace(' ', '-')}`);
     if (button) {
       button.classList.toggle('selected', !exists);
     }
   },
+
+  addCustomTime: () => {
+    const customTimeInput = document.getElementById('custom-time-input');
+    if (!customTimeInput || !customTimeInput.value) return showToast('Please select a custom time', 'error');
+    
+    const time = customTimeInput.value;
+    if (!Array.isArray(state.selectedAvailabilityTimes)) {
+      state.selectedAvailabilityTimes = [];
+    }
+    
+    if (!state.selectedAvailabilityTimes.includes(time)) {
+      state.selectedAvailabilityTimes.push(time);
+      showToast(`Custom time ${time} selected`, 'success');
+      
+      const customPillsContainer = document.getElementById('custom-time-pills');
+      if (customPillsContainer) {
+        const id = `pill-custom-${time.replace(':', '-').replace(' ', '-')}`;
+        if (!document.getElementById(id)) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = id;
+          btn.className = 'time-select-pill selected';
+          btn.innerText = time;
+          btn.onclick = () => app.toggleAvailabilityTime(time);
+          customPillsContainer.appendChild(btn);
+        }
+      }
+    } else {
+      showToast('This time is already selected', 'info');
+    }
+  },
+
 
   addDoctorSlot: async () => {
     const dateInput = document.getElementById('slot-date');
@@ -3807,6 +3841,22 @@ async function loadDashboardData() {
                     </div>
                   </div>
 
+                  <!-- Custom Time Selection -->
+                  <div>
+                    <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px; letter-spacing: 0.05em;">
+                      <i data-lucide="clock" style="width: 14px; height: 14px; color: #10b981;"></i> Custom Time
+                    </span>
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
+                      <div class="input-wrapper" style="margin: 0; width: 140px; height: 38px;">
+                        <input type="text" id="custom-time-input" class="input-control" placeholder="Select time" style="height: 38px; min-height: 38px;">
+                      </div>
+                      <button type="button" onclick="app.addCustomTime()" class="btn btn-outline" style="height: 38px; padding: 0 16px; font-size: 12px; border-radius: var(--radius-md);">
+                        Add Time
+                      </button>
+                    </div>
+                    <div id="custom-time-pills" class="availability-time-grid"></div>
+                  </div>
+
                   <!-- Action Button -->
                   <button onclick="app.addDoctorSlot()" class="btn btn-primary" style="width: 100%; height: 50px; font-size: 15px; font-weight: 700; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;">
                     <i data-lucide="calendar-plus"></i> Publish Availability Slots
@@ -3861,6 +3911,13 @@ async function loadDashboardData() {
                 dateInput.value = dateStr;
               }
             }
+          });
+
+          flatpickr("#custom-time-input", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K",
+            time_24hr: false
           });
 
         }
